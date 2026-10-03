@@ -1,0 +1,29 @@
+{
+  "name": "bentotasks",
+  "version": "1.0.0",
+  "description": "To-Do List simples para fixação de fundamentos com Express",
+  "homepage": "https://github.com/RoBentoSantos/bentoTasks#readme",
+  "bugs": {
+    "url": "https://github.com/RoBentoSantos/bentoTasks/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RoBentoSantos/bentoTasks.git"
+  },
+  "keywords": [
+    "node",
+    "Express",
+    "backend",
+    "CRUD"
+  ],
+  "license": "ISC",
+  "author": "RoBentoSantos",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
