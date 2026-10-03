@@ -1,4 +1,4 @@
-const express = require("express");
+import express from 'express';
 const app = express();
 
 app.use(express.json());
@@ -7,10 +7,6 @@ const tarefas = [
 	{ id: 1, titulo: "Configurar ambiente Node", concluida: true },
 	{ id: 2, titulo: "Aprender rotas com express", concluida: false },
 ];
-
-app.get("/", (req, res) => {
-	return res.send("Servidor rodando");
-});
 
 app.get("/tarefas", (req, res) => {
 	return res.json(tarefas);
