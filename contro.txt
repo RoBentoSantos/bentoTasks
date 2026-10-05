@@ -14,7 +14,7 @@ export function listar(req, res) {
 export function criar(req, res) {
 	const { titulo } = req.body;
 
-	if (!titulo) return res.status(400).json({ erro: "Titulo obrigatorio" });
+	if (!tarefa) return res.json({ erro: "Titulo obrigatorio" });
 
 	const tarefa = criarTarefa(titulo);
 
