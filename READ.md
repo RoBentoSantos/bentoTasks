@@ -68,7 +68,7 @@ cd bentotasks
 ```
 ---
 
-### 2. Execute com o Node
+### 1. Execute com o Node
 
 Abra o terminal onde o projeto está e cole os comando em ordem:
 ```bash
