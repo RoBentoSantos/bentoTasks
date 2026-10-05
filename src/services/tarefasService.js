@@ -36,7 +36,7 @@ export function criarTarefa(titulo) {
 			? 1
 			: Math.max(...tarefas.map((tarefa) => tarefa.id)) + 1;
 
-	newTarefa = {
+	const newTarefa = {
 		id,
 		titulo,
 		concluida: false,
