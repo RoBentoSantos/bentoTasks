@@ -1,5 +1,5 @@
 import express from "express";
-import router from "./src/routes/tarefaRoutes.js";
+import router from "./routes/tarefaRoutes.js";
 
 const app = express();
 
