@@ -63,7 +63,7 @@ Você pode executar o **bentoTasks** de duas formas: utilizando **Docker** (sem 
 
 Abra o terminal e clone o projeto:
 ```bash
-git clone [https://github.com/SEU-USUARIO/bentotasks.git](https://github.com/SEU-USUARIO/bentotasks.git)
+git clone https://github.com/RoBentoSantos/bentotasks.git
 cd bentotasks
 ```
 ---
