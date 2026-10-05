@@ -1,13 +1,13 @@
 import { Router } from "express";
-import * as produtoController from "../controllers/tarefaController.js";
+import * as tarefaController from "../controllers/tarefaController.js";
 
 const router = Router();
 
-router.get("/tarefas", produtoController.listar);
-router.post("/tarefas", produtoController.criar);
+router.get("/", tarefaController.listar);
+router.post("/", tarefaController.criar);
 
-router.get("/tarefas/:id", produtoController.buscarId);
-router.put("tarefas/:id", produtoController.atualizarTarefas);
-router.delete("/tarefas/:id", produtoController.deletar);
+router.get("/:id", tarefaController.buscarId);
+router.put("/:id", tarefaController.atualizarTarefas);
+router.delete("/:id", tarefaController.deletar);
 
 export default router;
