@@ -7,6 +7,10 @@ export function listarTodas() {
 	return tarefas;
 }
 
+export function buscarPorId(id) {
+	return tarefas.find(tarefa => tarefa.id === id)
+}
+
 export function criarTarefa(titulo) {
 	const id = tarefas.length === 0 
 	? 1 
