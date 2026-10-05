@@ -8,7 +8,10 @@ export function listarTodas() {
 }
 
 export function criarTarefa(titulo) {
-	id = Math.max(...tarefas.map((tarefa) => tarefa.id)) + 1;
+	const id = tarefas.length === 0 
+	? 1 
+	: Math.max(...tarefas.map((tarefa) => tarefa.id)) + 1;
+
     newTarefa = {
 		id,
 		titulo,
