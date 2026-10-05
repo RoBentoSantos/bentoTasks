@@ -1,4 +1,13 @@
-import express from 'express';
+import express from "express";
+import {
+	tarefas,
+	listarTodas,
+	buscarPorId,
+	atualizarTarefa,
+	criarTarefa,
+	deletarTarefa,
+} from "./src/services/tarefasService.js";
+
 const app = express();
 
 app.use(express.json());
@@ -9,52 +18,36 @@ app.get("/tarefas", (req, res) => {
 
 app.post("/tarefas", (req, res) => {
 	const { titulo } = req.body;
-	const id = Math.max(...tarefas.map((tarefa) => tarefa.id)) + 1;
-
-	const newTarefa = {
-		id,
-		titulo,
-		concluida: false,
-	};
-
-	tarefas.push(newTarefa);
+	const newTarefa = criarTarefa(titulo);
 
 	return res.status(201).json(newTarefa);
 });
 
 app.get("/tarefas/:id", (req, res) => {
 	const id = Number(req.params.id);
-	const resposta = tarefas.find((tarefa) => tarefa.id === id);
+	const tarefa = buscarPorId(id);
+	if (!tarefa) return res.status(404).json({ erro: "Tarefa nao encontrada" });
 
-	if (!resposta)
-		return res.status(404).json({ erro: "Tarefa nao encontrada" });
-
-	return res.json(resposta);
+	return res.json(tarefa);
 });
 
 app.put("/tarefas/:id", (req, res) => {
 	const id = Number(req.params.id);
-	const tarefa = tarefas.find((tarefa) => tarefa.id === id);
+	const tarefa = atualizarTarefa(id, req.body);
 
 	if (!tarefa) return res.status(404).json({ erro: "Tarefa nao encontrada" });
 
-	const { titulo, concluida } = req.body;
-
-	if (titulo !== undefined) tarefa.titulo = titulo;
-	if (concluida !== undefined) tarefa.concluida = concluida;
-
-	return res.status(200).json(tarefa);
+	return tarefa;
 });
 
 app.delete("/tarefas/:id", (req, res) => {
 	const id = Number(req.params.id);
-	const index = tarefas.findIndex((tarefa) => tarefa.id === id);
+	const deleted = deletarTarefa(id);
 
-	if (index === -1)
-		return res.status(404).json({ erro: "Tarefa não encontrada" });
+	if (!deleted)
+		return res.status(404).json({ erro: "Tarefa nao encontrada" });
 
-	tarefas.splice(index, 1);
-	return res.status(200).json({ mensagem: "Tarefa excluida com sucesso" });
+	return res.json("Tarefa apagada");
 });
 
 app.listen(3000, () => {
