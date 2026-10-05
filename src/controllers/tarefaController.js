@@ -3,8 +3,7 @@ import {
 	buscarPorId,
 	criarTarefa,
 	deletarTarefa,
-	listarTodas,
-	tarefas,
+	listarTodas
 } from "../services/tarefasService.js";
 
 export function listar(req, res) {
